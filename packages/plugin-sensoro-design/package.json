@@ -1,0 +1,21 @@
+{
+  "name": "@sensoro/plugin-sensoro-design",
+  "version": "0.0.1",
+  "description": "sensoro design umi plugin",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "dependencies": {
+    "@sensoro/sensoro-design": "^1.0.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

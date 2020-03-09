@@ -1,0 +1,15 @@
+{
+  "name": "@sensoro/workspace",
+  "main": "index.js",
+  "repository": "git@github.com:SensoroFE/umi-plugins.git",
+  "author": "SENSORO FE",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "father-build"
+  },
+  "devDependencies": {
+    "father-build": "^1.17.2",
+    "umi": "^3.0.6"
+  }
+}
