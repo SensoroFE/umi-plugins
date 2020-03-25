@@ -1,13 +1,31 @@
 import { dirname } from 'path';
-import { IApi as Api } from 'umi';
+import { IApi } from 'umi';
 
-export default (api: Api) => {
+interface SensoroDesignOpts {
+  dark?: boolean;
+  compact?: boolean;
+}
+
+export default (api: IApi) => {
+
+  api.describe({
+    key: 'sensoroDesign',
+    config: {
+      schema(joi) {
+        return joi.object({
+          dark: joi.boolean(),
+          compact: joi.boolean(),
+        });
+      },
+    },
+  });
+
   api.modifyBabelPresetOpts(opts => {
     return {
       ...opts,
       import: (opts.import || []).concat([
         { libraryName: '@sensoro/sensoro-design', libraryDirectory: 'es', style: true }
-      ]),
+      ])
     };
   });
 
@@ -17,4 +35,4 @@ export default (api: Api) => {
       path: dirname(require.resolve('@sensoro/sensoro-design/package.json')),
     }
   ]);
-}
+};

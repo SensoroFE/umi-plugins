@@ -5,15 +5,14 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "src"
+    "lib"
   ],
   "license": "MIT",
   "peerDependencies": {
     "umi": "3.x"
   },
   "dependencies": {
-    "@sensoro/sensoro-design": "^1.0.4"
+    "@sensoro/sensoro-design": "^1.0.7"
   },
   "publishConfig": {
     "access": "public"

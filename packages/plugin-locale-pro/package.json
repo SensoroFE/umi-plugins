@@ -1,7 +1,0 @@
-{
-  "name": "@sensoro/plugin-locale-pro",
-  "version": "0.0.1",
-  "description": "umi locale plugin",
-  "main": "index.js",
-  "license": "MIT"
-}
