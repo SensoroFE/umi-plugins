@@ -2,8 +2,7 @@ import { dirname } from 'path';
 import { IApi } from 'umi';
 
 interface SensoroDesignOpts {
-  dark?: boolean;
-  compact?: boolean;
+  firstLibrarie?: boolean;
 }
 
 export default (api: IApi) => {
@@ -11,14 +10,18 @@ export default (api: IApi) => {
   api.describe({
     key: 'sensoroDesign',
     config: {
+      default: {
+        firstLibrarie: true
+      },
       schema(joi) {
         return joi.object({
-          dark: joi.boolean(),
-          compact: joi.boolean(),
+          dafirstLibrarierk: joi.boolean()
         });
       },
     },
   });
+
+  const opts: SensoroDesignOpts = api.userConfig.sensoroDesign || {};
 
   api.modifyBabelPresetOpts(opts => {
     return {
@@ -29,10 +32,12 @@ export default (api: IApi) => {
     };
   });
 
-  api.addProjectFirstLibraries(() => [
-    {
-      name: '@sensoro/sensoro-design',
-      path: dirname(require.resolve('@sensoro/sensoro-design/package.json')),
-    }
-  ]);
+  if (opts?.firstLibrarie) {
+    api.addProjectFirstLibraries(() => [
+      {
+        name: '@sensoro/sensoro-design',
+        path: dirname(require.resolve('@sensoro/sensoro-design/package.json')),
+      }
+    ]);
+  }
 };

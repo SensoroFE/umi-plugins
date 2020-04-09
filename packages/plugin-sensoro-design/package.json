@@ -1,5 +1,5 @@
 {
-  "name": "@sensoro/plugin-sensoro-design",
+  "name": "@sensoro/umi-plugin-sensoro-design",
   "version": "0.0.1",
   "description": "sensoro design umi plugin",
   "main": "lib/index.js",
@@ -12,7 +12,7 @@
     "umi": "3.x"
   },
   "dependencies": {
-    "@sensoro/sensoro-design": "^1.0.7"
+    "@sensoro/sensoro-design": "^1.1.5"
   },
   "publishConfig": {
     "access": "public"
