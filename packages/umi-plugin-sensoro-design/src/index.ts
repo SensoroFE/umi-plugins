@@ -2,7 +2,7 @@ import { dirname } from 'path';
 import { IApi } from 'umi';
 
 interface SensoroDesignOpts {
-  firstLibrarie?: boolean;
+  firstLibrary?: boolean;
 }
 
 export default (api: IApi) => {
@@ -11,11 +11,11 @@ export default (api: IApi) => {
     key: 'sensoroDesign',
     config: {
       default: {
-        firstLibrarie: true
+        firstLibrary: true
       },
       schema(joi) {
         return joi.object({
-          dafirstLibrarierk: joi.boolean()
+          firstLibrary: joi.boolean()
         });
       },
     },
@@ -32,7 +32,7 @@ export default (api: IApi) => {
     };
   });
 
-  if (opts?.firstLibrarie) {
+  if (opts?.firstLibrary) {
     api.addProjectFirstLibraries(() => [
       {
         name: '@sensoro/sensoro-design',
