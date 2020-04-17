@@ -7,6 +7,7 @@
   "scripts": {
     "test": "walrus-test",
     "build": "father-build",
+    "lint:es": "walrus eslint",
     "release": "walrus release"
   },
   "devDependencies": {
