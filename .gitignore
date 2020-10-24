@@ -26,3 +26,5 @@ public
 es
 lib
 dist
+
+yarn.lock
