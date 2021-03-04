@@ -1,6 +1,6 @@
 {
   "name": "@sensoro/umi-plugin-sensoro-design",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "sensoro design umi plugin",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
