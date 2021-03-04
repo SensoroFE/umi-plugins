@@ -12,7 +12,7 @@
     "umi": "3.x"
   },
   "dependencies": {
-    "@sensoro/sensoro-design": "^1.31.3"
+    "@sensoro/sensoro-design": "^1.35.4"
   },
   "publishConfig": {
     "access": "public"
