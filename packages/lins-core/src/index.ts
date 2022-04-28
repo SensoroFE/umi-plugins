@@ -1,6 +1,6 @@
 import { IApi } from 'umi';
-import { join, dirname } from 'path';
-import { readFileSync, existsSync } from 'fs';
+import { join } from 'path';
+import { readFileSync } from 'fs';
 
 const pluginDir = 'plugin-lins-core';
 

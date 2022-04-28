@@ -1,0 +1,17 @@
+{
+  "name": "@sensoro/umi-plugin-api-url",
+  "version": "0.1.0",
+  "description": "api url umi plugin",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
