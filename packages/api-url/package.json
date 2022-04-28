@@ -1,6 +1,6 @@
 {
   "name": "@sensoro/umi-plugin-api-url",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "api url umi plugin",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

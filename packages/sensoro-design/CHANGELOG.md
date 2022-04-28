@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-sensoro-design@0.1.6...@sensoro/umi-plugin-sensoro-design@0.1.7) (2022-04-28)
+
+**Note:** Version bump only for package @sensoro/umi-plugin-sensoro-design
+
+
+
+
+
 ## [0.1.6](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-sensoro-design@0.1.5...@sensoro/umi-plugin-sensoro-design@0.1.6) (2021-03-04)
 
 **Note:** Version bump only for package @sensoro/umi-plugin-sensoro-design
