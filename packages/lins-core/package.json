@@ -1,0 +1,17 @@
+{
+  "name": "@sensoro/umi-plugin-lins-core",
+  "version": "0.1.0",
+  "description": "lins core umi plugin",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "umi": "3.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
