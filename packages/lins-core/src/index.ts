@@ -2,15 +2,16 @@ import { IApi } from 'umi';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
-const pluginDir = 'plugin-lins-core';
+const absPluginDir = 'plugin-lins-core';
 
 export default (api: IApi) => {
   const {
     utils: { winPath, Mustache, },
   } = api;
 
+  api.addRuntimePluginKey(() => 'linsCore');
+
   api.describe({
-    key: 'linsCore',
     config: {
       schema(joi) {
         return joi.object({
@@ -22,6 +23,7 @@ export default (api: IApi) => {
           }),
         });
       },
+      default: {},
     },
     // enableBy: api.EnableBy.config,
   });
@@ -33,9 +35,9 @@ export default (api: IApi) => {
       'utf-8',
     );
     api.writeTmpFile({
-      path: `${pluginDir}/Provider.tsx`,
+      path: `${absPluginDir}/Provider.tsx`,
       content: Mustache.render(coreTpl, {
-        config: api.config.linsCore ?? {}
+        config: JSON.stringify(api.config.linsCore ?? {}),
       }),
     });
 
@@ -45,10 +47,10 @@ export default (api: IApi) => {
       'utf-8',
     );
     api.writeTmpFile({
-      path: `${pluginDir}/runtime.tsx`,
+      path: `${absPluginDir}/runtime.tsx`,
       content: Mustache.render(runtimeTpl, {}),
     });
   });
 
-  api.addRuntimePlugin(() => `../${pluginDir}/runtime.tsx`);
+  api.addRuntimePlugin(() => `../${absPluginDir}/runtime.tsx`);
 }
