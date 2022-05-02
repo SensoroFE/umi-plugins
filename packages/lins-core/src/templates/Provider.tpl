@@ -1,5 +1,7 @@
 import React from 'react';
-import { GlobalService, useGlobalService } from 'lins-core';
+import { init, GlobalService, useGlobalService } from 'lins-core';
+
+init({{#config}})
 
 export default (props) => {
   const globalService = useGlobalService();

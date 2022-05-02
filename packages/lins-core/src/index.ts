@@ -12,15 +12,18 @@ export default (api: IApi) => {
   api.describe({
     key: 'linsCore',
     config: {
-      default: {
-
-      },
       schema(joi) {
         return joi.object({
+          baseUrl: joi.string(),
+          scoketUrl: joi.string(),
+          request: joi.object(),
+          service: joi.object({
+            prefix: joi.string(),
+          }),
         });
       },
     },
-    // enableBy: api.EnableBy.register,
+    enableBy: api.EnableBy.config,
   });
 
   api.onGenerateFiles(async () => {
@@ -31,7 +34,9 @@ export default (api: IApi) => {
     );
     api.writeTmpFile({
       path: `${pluginDir}/Provider.tsx`,
-      content: Mustache.render(coreTpl, {}),
+      content: Mustache.render(coreTpl, {
+        config: api.config.linsCore ?? {}
+      }),
     });
 
     // runtime.tsx
@@ -41,9 +46,7 @@ export default (api: IApi) => {
     );
     api.writeTmpFile({
       path: `${pluginDir}/runtime.tsx`,
-      content: Mustache.render(runtimeTpl, {
-
-      }),
+      content: Mustache.render(runtimeTpl, {}),
     });
   });
 
