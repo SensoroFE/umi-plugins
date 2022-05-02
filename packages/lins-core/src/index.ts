@@ -23,7 +23,7 @@ export default (api: IApi) => {
         });
       },
     },
-    enableBy: api.EnableBy.config,
+    // enableBy: api.EnableBy.config,
   });
 
   api.onGenerateFiles(async () => {
