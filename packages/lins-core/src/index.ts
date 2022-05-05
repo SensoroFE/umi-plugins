@@ -14,14 +14,7 @@ export default (api: IApi) => {
   api.describe({
     config: {
       schema(joi) {
-        return joi.object({
-          baseUrl: joi.string(),
-          scoketUrl: joi.string(),
-          request: joi.object(),
-          service: joi.object({
-            prefix: joi.string(),
-          }),
-        });
+        return joi.object();
       },
       default: {},
     },
