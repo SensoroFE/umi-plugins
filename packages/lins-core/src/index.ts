@@ -9,9 +9,8 @@ export default (api: IApi) => {
     utils: { winPath, Mustache, },
   } = api;
 
-  api.addRuntimePluginKey(() => 'linsCore');
-
   api.describe({
+    key: 'linsCore',
     config: {
       schema(joi) {
         return joi.object();
@@ -21,16 +20,21 @@ export default (api: IApi) => {
     // enableBy: api.EnableBy.config,
   });
 
+  api.addRuntimePluginKey(() => 'linsCore');
+
   api.onGenerateFiles(async () => {
     // lins-core.tsx
     const coreTpl = readFileSync(
       join(winPath(__dirname), 'templates', 'Provider.tpl'),
       'utf-8',
     );
+    const dictionary = api.config.linsCore?.dictionary ?? [];
+
     api.writeTmpFile({
       path: `${absPluginDir}/Provider.tsx`,
       content: Mustache.render(coreTpl, {
         config: JSON.stringify(api.config.linsCore ?? {}),
+        dictionary: JSON.stringify(dictionary)
       }),
     });
 
