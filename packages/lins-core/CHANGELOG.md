@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.1.6...@sensoro/umi-plugin-lins-core@0.2.0) (2022-05-30)
+
+
+### Features
+
+* 支持设置运行时参数 ([c51accd](https://github.com/SensoroFE/umi-plugins/commit/c51accd44ce51c62006808c7776e374f8401be0a))
+
+
+
+
+
 ## [0.1.6](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.1.5...@sensoro/umi-plugin-lins-core@0.1.6) (2022-05-29)
 
 **Note:** Version bump only for package @sensoro/umi-plugin-lins-core
