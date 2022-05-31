@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.2.1...@sensoro/umi-plugin-lins-core@0.3.0) (2022-05-31)
+
+
+### Features
+
+* **lins-core:** 支持 skipStateCheck 参数设置 ([f518b5f](https://github.com/SensoroFE/umi-plugins/commit/f518b5f88d70eb3d581b1c5a3453ed29002b7b37))
+
+
+
+
+
 ## [0.2.1](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.2.0...@sensoro/umi-plugin-lins-core@0.2.1) (2022-05-30)
 
 
