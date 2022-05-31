@@ -28,13 +28,15 @@ export default (api: IApi) => {
       join(winPath(__dirname), 'templates', 'Provider.tpl'),
       'utf-8',
     );
-    const dictionary = api.config.linsCore?.dictionary ?? [];
+    const { dictionary = [], skipStateCheck = false, ...rest } = api.config.linsCore ?? {};
 
     api.writeTmpFile({
       path: `${absPluginDir}/Provider.tsx`,
       content: Mustache.render(coreTpl, {
-        config: JSON.stringify(api.config.linsCore ?? {}),
-        dictionary: JSON.stringify(dictionary)
+        config: JSON.stringify(rest ?? {}),
+        dictionary: JSON.stringify(dictionary),
+        skipStateCheck: skipStateCheck === true,
+        stateCheck: skipStateCheck !== true
       }),
     });
 
@@ -43,6 +45,7 @@ export default (api: IApi) => {
       join(__dirname, 'templates', 'runtime.tpl'),
       'utf-8',
     );
+
     api.writeTmpFile({
       path: `${absPluginDir}/runtime.tsx`,
       content: Mustache.render(runtimeTpl, {}),

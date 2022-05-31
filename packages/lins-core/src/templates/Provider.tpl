@@ -11,6 +11,8 @@ const Children: React.FC = ({
   loading,
   children
 }) => {
+  // 跳过状态检查
+  {{#stateCheck}}
   const running = useCoreState();
   const dictionaryRunning = useRequestDictionary({{{dictionary}}});
   const { pathname } = location;
@@ -30,6 +32,14 @@ const Children: React.FC = ({
       {running && dictionaryRunning && children}
     </>
   )
+  {{/stateCheck}}
+
+  // 跳过状态检查
+  {{#skipStateCheck}}
+  useRequestDictionary({{{dictionary}}});
+
+  return children;
+  {{/skipStateCheck}}
 }
 
 export default (props) => {
