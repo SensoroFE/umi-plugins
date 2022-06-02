@@ -73,17 +73,16 @@ const Children: React.FC = ({
 
   // 跳过状态检查
   {{#skipStateCheck}}
-  const { refreshMe, toekn, dictionaryRun } = useCore();
+  const { refreshMe, token, dictionaryRun } = useCore();
 
-  const running = useCoreState();
   useEffect(
     () => {
-      if (toekn) {
+      if (token) {
         refreshMe();
-        ictionaryRun();
+        dictionaryRun(dictionaryKeys);
       }
     },
-    [toekn]
+    [token]
   );
 
   return children;
