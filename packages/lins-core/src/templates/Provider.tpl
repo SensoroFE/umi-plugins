@@ -32,7 +32,7 @@ const Children: React.FC = ({
       }
     }
 
-    const unlisten = history.listen(({ location }) => {
+    const unlisten = history.listen((location) => {
       const token = getToken();
       // 无需登录的页面 >> 需要登录的页面
       if (
