@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.3](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.3.2...@sensoro/umi-plugin-lins-core@0.3.3) (2022-06-02)
+
+
+### Bug Fixes
+
+* 修复字符书写错误 ([9a0334d](https://github.com/SensoroFE/umi-plugins/commit/9a0334db38125d80e446297e7a533bf2b77ef9b6))
+
+
+
+
+
 ## [0.3.2](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.3.1...@sensoro/umi-plugin-lins-core@0.3.2) (2022-06-02)
 
 
