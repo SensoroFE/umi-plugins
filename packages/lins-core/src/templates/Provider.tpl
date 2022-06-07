@@ -49,6 +49,15 @@ const Children: React.FC = ({
         return;
       }
 
+      // 需要登录信息页面，获取登录信息
+      if (
+        !verifyRoutes(noLoginPaths, e.pathname) &&
+        !meData
+      ) {
+        handleFetchData();
+        return;
+      }
+
       // 无需登录的页面 >> 需要登录的页面
       if (
         verifyRoutes(noLoginPaths, pathname) &&
