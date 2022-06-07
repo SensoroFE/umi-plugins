@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.3.3...@sensoro/umi-plugin-lins-core@0.4.0) (2022-06-07)
+
+
+### Features
+
+* 优化用户数据加载逻辑 ([64771e4](https://github.com/SensoroFE/umi-plugins/commit/64771e475b85331dcaa42af0a59c3f72d097738e))
+
+
+
+
+
 ## [0.3.3](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.3.2...@sensoro/umi-plugin-lins-core@0.3.3) (2022-06-02)
 
 
