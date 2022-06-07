@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import { init, App, verifyRoutes, useCore, useCoreState } from 'lins-core';
+import React, { useState, useEffect } from 'react';
+import { init, App, verifyRoutes, useCore, } from 'lins-core';
 
 import { ApplyPluginsType, history } from 'umi';
 import { plugin } from '../core/umiExports';
 
-init({{{config}}})
-
-const dictionaryKeys = {{{dictionary}}};
+const config = {{{config}}};
+const dicKeys = {{{dictionary}}};
 
 const Children: React.FC = ({
   noLoginPaths = ['/login'],
@@ -15,33 +14,53 @@ const Children: React.FC = ({
 }) => {
   // 状态检查
   {{#stateCheck}}
-  const { refreshMe, getToken, dictionaryRun } = useCore();
-
-  const running = useCoreState();
+  const [status, setStatus] = useState('init');
+  const { fetchMe, fetchDictionary, getToken, getMeData } = useCore();
+  const { pathname } = location;
   const token = getToken();
-  const { pathname } = location ?? {};
+
+  const handleFetchData = async () => {
+    setStatus('loading');
+
+    await fetchMe();
+    await fetchDictionary(dicKeys);
+
+    setStatus('pass');
+  }
 
   useEffect(() => {
-    if (!verifyRoutes(noLoginPaths, pathname)) {
-      if (token) {
-        refreshMe();
-        dictionaryRun(dictionaryKeys)
-      } else {
-        history.push('/login');
-        location.reload()
-      }
-    }
-
-    const unlisten = history.listen((location) => {
+    const unlisten = history.listen((e) => {
       const token = getToken();
+
+      // 跳转无需登录页面，直接放行
+      if (
+        verifyRoutes(noLoginPaths, e.pathname)
+      ) {
+        setStatus('pass');
+        return;
+      }
+
+      // 从登录页面跳转而来，必须获取用户信息
+      if (
+        pathname === '/login' &&
+        !verifyRoutes(noLoginPaths, e.pathname)
+      ) {
+        handleFetchData();
+        return;
+      }
+
       // 无需登录的页面 >> 需要登录的页面
       if (
         verifyRoutes(noLoginPaths, pathname) &&
-        !verifyRoutes(noLoginPaths, location.pathname)
+        !verifyRoutes(noLoginPaths, e.pathname)
       ) {
+        if (meData) {
+          setStatus('pass');
+          return;
+        };
+
         if (token) {
-          refreshMe();
-          dictionaryRun(dictionaryKeys)
+          handleFetchData();
           return;
         }
 
@@ -49,42 +68,40 @@ const Children: React.FC = ({
       }
     });
 
+    const meData = getMeData();
+
+    if (verifyRoutes(noLoginPaths, pathname) || meData) {
+      setStatus('pass');
+      return;
+    }
+
+    if (!verifyRoutes(noLoginPaths, pathname)) {
+      if (token) {
+        handleFetchData();
+      } else {
+        history.push('/login');
+      }
+    }
+
     return () => {
       unlisten();
     }
-  }, [])
-
-  // 无需登录页面直接放行
-  if (verifyRoutes(noLoginPaths, pathname)) {
-    return children;
-  }
+  }, []);
 
   // 需要登录的页面
-  if (!running && loading) {
+  if (status === 'loading' && loading) {
     return loading;
   }
 
   return (
     <>
-      {running && children}
+      {status === 'pass' && children}
     </>
   )
   {{/stateCheck}}
 
   // 跳过状态检查
   {{#skipStateCheck}}
-  const { refreshMe, token, dictionaryRun } = useCore();
-
-  useEffect(
-    () => {
-      if (token) {
-        refreshMe();
-        dictionaryRun(dictionaryKeys);
-      }
-    },
-    [token]
-  );
-
   return children;
   {{/skipStateCheck}}
 }
@@ -95,6 +112,8 @@ export default (props) => {
     type: ApplyPluginsType.modify,
     initialValue: {},
   });
+
+  init({ ...config, history: runtimeLinsCore.history })
 
   return (
     <App>
