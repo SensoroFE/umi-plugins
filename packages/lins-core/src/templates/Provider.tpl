@@ -111,6 +111,13 @@ const Children: React.FC = ({
 
   // 跳过状态检查
   {{#skipStateCheck}}
+  const { fetchMe, fetchDictionary, token } = useCore();
+
+  useEffect(async () => {
+    await fetchMe();
+    await fetchDictionary(dicKeys);
+  }, [token]);
+
   return children;
   {{/skipStateCheck}}
 }
