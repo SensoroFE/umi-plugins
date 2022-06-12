@@ -114,8 +114,10 @@ const Children: React.FC = ({
   const { fetchMe, fetchDictionary, token } = useCore();
 
   useEffect(async () => {
-    await fetchMe();
-    await fetchDictionary(dicKeys);
+    if (token) {
+      await fetchMe();
+      await fetchDictionary(dicKeys);
+    }
   }, [token]);
 
   return children;
