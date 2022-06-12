@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.4.1...@sensoro/umi-plugin-lins-core@0.5.0) (2022-06-12)
+
+
+### Features
+
+* 添加 token 判断 ([4830618](https://github.com/SensoroFE/umi-plugins/commit/4830618b688b5764a109fa1df243c4afbea21320))
+* 支持获取状态 ([96d5d2a](https://github.com/SensoroFE/umi-plugins/commit/96d5d2a890495b12ba744d738d67fc9369906a6d))
+
+
+
+
+
 ## [0.4.1](https://github.com/SensoroFE/umi-plugins/compare/@sensoro/umi-plugin-lins-core@0.4.0...@sensoro/umi-plugin-lins-core@0.4.1) (2022-06-07)
 
 
